@@ -27,10 +27,10 @@ def main():
     """Summary
     """
     # Read an image file
-    img = cv2.imread("poyopoyo.jpg")
+    img = cv2.imread("zzm_kiritan_shiori.jpg")
 
-    width = img.shape[0]
-    height = img.shape[1]
+    width = img.shape[1]
+    height = img.shape[0]
     print("width:{0}".format(width))
     print("height:{0}".format(height))
 
