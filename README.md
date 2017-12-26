@@ -1,2 +1,2 @@
-# picture-to-gds
-Python script to convert image files to GDS files
+# Picture-to-GDS
+Python script to convert image files to GDSII files
