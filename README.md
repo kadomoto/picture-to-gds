@@ -16,7 +16,7 @@ gdsCAD
 picToGDS.py <fileName>
 ```
 
-## Authors
+## Author
 * **Ourfool in Saginomiya** -[homepage](http://www.saginomiya.xyz/)-
 
 ## License
