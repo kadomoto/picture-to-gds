@@ -17,7 +17,7 @@ picToGDS.py <fileName>
 ```
 
 ## Authors
-* **Ourfool in Saginomiya** [homepage](http://www.saginomiya.xyz/)
+* **Ourfool in Saginomiya** -[homepage](http://www.saginomiya.xyz/)-
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
