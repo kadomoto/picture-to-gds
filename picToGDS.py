@@ -40,26 +40,26 @@ def main(fileName, sizeOfTheCell, layerNum):
     # Convert an image to grayscale one
     gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
-    ret, th2 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU)
+    ret, binaryImage = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU)
 
     # Fill orthological corner
     for x in range(width - 1):
         for y in range(height - 1):
-            if th2.item(y, x) == 0 and th2.item(y + 1, x) == 255 \
-                    and th2.item(y, x + 1) == 255 and th2.item(y + 1, x + 1) == 0:
-                th2.itemset((y + 1, x), 0)
-            elif th2.item(y, x) == 255 and th2.item(y + 1, x) == 0 \
-                    and th2.item(y, x + 1) == 0 and th2.item(y + 1, x + 1) == 255:
-                th2.itemset((y + 1, x + 1), 0)
+            if binaryImage.item(y, x) == 0 and binaryImage.item(y + 1, x) == 255 \
+                    and binaryImage.item(y, x + 1) == 255 and binaryImage.item(y + 1, x + 1) == 0:
+                binaryImage.itemset((y + 1, x), 0)
+            elif binaryImage.item(y, x) == 255 and binaryImage.item(y + 1, x) == 0 \
+                    and binaryImage.item(y, x + 1) == 0 and binaryImage.item(y + 1, x + 1) == 255:
+                binaryImage.itemset((y + 1, x + 1), 0)
 
     # Output image.bmp
-    cv2.imwrite("image.bmp", th2)
+    cv2.imwrite("image.bmp", binaryImage)
 
     grid = core.Cell("GRID")
 
     for x in range(width):
         for y in range(height):
-            if th2.item(y, x) == 0:
+            if binaryImage.item(y, x) == 0:
                 print("({0}, {1}) is black".format(x, y))
                 grid.add(unit_cell(x, height - y - 1, layerNum))
 
