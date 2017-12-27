@@ -13,7 +13,7 @@ gdsCAD
 
 ## Usage
 ```
-picToGDS.py <fileName>
+python picToGDS.py <fileName>
 ```
 
 ## Author
