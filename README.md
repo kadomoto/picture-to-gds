@@ -2,7 +2,7 @@
 Python script to convert image files to GDSII files
 
 ## Getting Started
-This is a simple script for generating GDSII layout files from image files. The files should have the extensions jpeg, jpg, png, pbm, pgm, or bmp.
+This is a simple script for generating GDSII layout files from image files. The files should have the extensions jpeg, jpg, png, pbm, pgm, or bmp. By specifying an image file, size of the unit-cell (minimum width and space of the layout), and layer number of the GDSII file, you can get a binary image file (image.bmp) and a GDSII layout file.
 
 ### Prerequisites
 ```
@@ -13,7 +13,7 @@ gdsCAD
 
 ## Usage
 ```
-python picToGDS.py <fileName>
+python picToGDS.py <fileName> <sizeOfTheCell[um]> <layerNum>
 ```
 
 ## Author
