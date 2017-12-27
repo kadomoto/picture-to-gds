@@ -6,7 +6,7 @@ This is a simple script for generating GDSII layout files from image files. The 
 
 ### Prerequisites
 ```
-numpy
+NumPy
 openCV
 gdsCAD
 ```
