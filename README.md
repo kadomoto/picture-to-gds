@@ -27,4 +27,4 @@ python picToGDS.py test.jpg 0.6 4
 * **Ourfool in Saginomiya** -[homepage](http://www.saginomiya.xyz/)-
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
