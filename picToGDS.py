@@ -8,23 +8,6 @@ import numpy as np
 from gdsCAD import *
 
 
-def unit_cell(x, y, layerNum):
-    """Make a unit-cell
-
-    Args:
-        w1 (float): x-position of the via
-        w2 (float): y-position of the via
-    Returns:
-        cell: Description
-    """
-    cell = core.Cell('VIA')
-    square = shapes.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
-    d = (x, y)
-    cell.add(utils.translate(square, d))
-
-    return cell
-
-
 def main(fileName, sizeOfTheCell, layerNum):
     """Convert an image file (fileName) to a GDS file
     """
@@ -55,13 +38,18 @@ def main(fileName, sizeOfTheCell, layerNum):
     # Output image.bmp
     cv2.imwrite("image.bmp", binaryImage)
 
+    unitCell = core.Cell("CELL")
+    square = shapes.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
+    unitCell.add(square)
+
     grid = core.Cell("GRID")
 
     for x in range(width):
         for y in range(height):
             if binaryImage.item(y, x) == 0:
                 print("({0}, {1}) is black".format(x, y))
-                grid.add(unit_cell(x, height - y - 1, layerNum))
+                cell = core.CellReference(unitCell, origin=(x, height - y - 1))
+                grid.add(cell)
 
     scaledGrid = core.CellReference(
         grid, origin=(0, 0), magnification=(float)(sizeOfTheCell))
@@ -69,8 +57,8 @@ def main(fileName, sizeOfTheCell, layerNum):
     top = core.Cell("TOP")
     top.add(scaledGrid)
 
-    # Add the copied cell to a layout and save
-    layout = core.Layout("LIBRARY")
+    # Add the top-cell to a layout and save
+    layout = core.Layout("LAYOUT")
     layout.add(top)
     layout.save("image.gds")
 
