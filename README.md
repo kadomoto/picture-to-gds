@@ -13,7 +13,7 @@ gdsCAD
 
 ## Usage
 ```
-python picToGDS.py <fileName> <sizeOfTheCell[um]> <layerNum>
+python picToGDS.py ${fileName} ${sizeOfTheCell[um]} ${layerNum}
 ```
 
 ## Example
