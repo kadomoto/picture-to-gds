@@ -13,12 +13,12 @@ gdsCAD
 
 ## Usage
 ```
-python picToGDS.py ${fileName} ${sizeOfTheCell[um]} ${layerNum}
+$ python picToGDS.py ${fileName} ${sizeOfTheCell[um]} ${layerNum}
 ```
 
 ## Example
 ```
-python picToGDS.py test.jpg 0.6 4
+$ python picToGDS.py test.jpg 0.6 4
 ```
 ![example](https://github.com/ourfool/image-files/blob/master/picToGDS.jpg?raw=true
  "example")
