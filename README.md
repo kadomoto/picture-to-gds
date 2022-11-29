@@ -6,7 +6,7 @@ This is a simple script for generating GDSII layout files from image files. The 
 
 ### Prerequisites
 - NumPy
-- openCV2
+- openCV
 - gdspy
 
 
@@ -21,9 +21,6 @@ $ python picToGDS.py test.jpg 0.6 4
 ```
 ![example](https://github.com/ourfool/image-files/blob/master/picToGDS.jpg?raw=true
  "example")
- 
-## Original Author
-* **Ourfool in Saginomiya** -[homepage](http://www.saginomiya.xyz/)-
 
 ## License
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
