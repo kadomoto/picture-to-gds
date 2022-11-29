@@ -99,5 +99,4 @@ def main(fileName, sizeOfTheCell, layerNum):
 
 
 if __name__ == "__main__":
-    #args = sys.argv
     main(args.fileName, args.sizeOfTheCell, args.layerNum)
