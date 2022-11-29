@@ -12,7 +12,7 @@ This is a simple script for generating GDSII layout files from image files. The 
 
 ## Usage
 ```
-$ python picToGDS.py ${fileName} ${sizeOfTheCell[um]} ${layerNum}
+$ python picToGDS.py [-h] [--scale SCALE] [-d] fileName sizeOfTheCell layerNum
 ```
 
 ## Example
