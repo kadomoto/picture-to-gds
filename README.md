@@ -29,7 +29,7 @@ $ python picToGDS.py -d test.jpg 0.6 4
 
 ```
 # Scaling
-$ python picToGDS.py --scale 2.0 test.png 1.0 2
+$ python picToGDS.py --scale 2.0 -d test.png 1.0 2
 ```
 ![example3](document/fig3.jpg "example3")
 
