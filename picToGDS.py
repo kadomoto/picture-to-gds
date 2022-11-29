@@ -5,7 +5,8 @@
 import sys
 import cv2
 import numpy as np
-from gdsCAD import *
+import gdspy
+
 
 
 def main(fileName, sizeOfTheCell, layerNum):
@@ -37,30 +38,34 @@ def main(fileName, sizeOfTheCell, layerNum):
 
     # Output image.bmp
     cv2.imwrite("image.bmp", binaryImage)
+    # The GDSII file is called a library, which contains multiple cells.
+    lib = gdspy.GdsLibrary()
 
-    unitCell = core.Cell("CELL")
-    square = shapes.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
+    # Geometry must be placed in cells.
+
+    unitCell = lib.new_cell('CELL')
+    square = gdspy.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
     unitCell.add(square)
 
-    grid = core.Cell("GRID")
+    grid =  lib.new_cell("GRID")
 
     for x in range(width):
         for y in range(height):
             if binaryImage.item(y, x) == 0:
                 print("({0}, {1}) is black".format(x, y))
-                cell = core.CellReference(unitCell, origin=(x, height - y - 1))
+                cell = gdspy.CellReference(unitCell, origin=(x, height - y - 1))
                 grid.add(cell)
 
-    scaledGrid = core.CellReference(
+
+    scaledGrid = gdspy.CellReference(
         grid, origin=(0, 0), magnification=(float)(sizeOfTheCell))
 
-    top = core.Cell("TOP")
-    top.add(scaledGrid)
+
 
     # Add the top-cell to a layout and save
-    layout = core.Layout("LAYOUT")
-    layout.add(top)
-    layout.save("image.gds")
+    top = lib.new_cell("TOP")
+    top.add(scaledGrid)
+    lib.write_gds("image.gds")
 
 
 if __name__ == "__main__":
