@@ -21,5 +21,17 @@ $ python picToGDS.py test.jpg 0.6 4
 ```
 ![example1](document/fig1.jpg "example1")
 
+```
+# Floyd–Steinberg dithering
+$ python picToGDS.py -d test.jpg 0.6 4
+```
+![example2](document/fig2.jpg "example2")
+
+```
+# Scaling
+$ python picToGDS.py --scale 2.0 test.png 1.0 2
+```
+![example3](document/fig3.jpg "example3")
+
 ## License
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
