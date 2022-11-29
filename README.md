@@ -19,8 +19,7 @@ $ python picToGDS.py [-h] [--scale SCALE] [-d] fileName sizeOfTheCell layerNum
 ```
 $ python picToGDS.py test.jpg 0.6 4
 ```
-![example](https://github.com/ourfool/image-files/blob/master/picToGDS.jpg?raw=true
- "example")
+![example1](document/fig1.jpg "example1")
 
 ## License
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
