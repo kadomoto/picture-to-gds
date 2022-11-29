@@ -2,7 +2,6 @@
 """Convert an image file to a GDS file
 """
 
-#import sys
 import cv2
 import numpy as np
 import gdspy
