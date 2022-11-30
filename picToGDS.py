@@ -8,14 +8,6 @@ import gdspy
 
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument('fileName', type=str, help='name of the input image file')
-parser.add_argument('sizeOfTheCell', type=float, help='size of the unit-cells (minimum width and space) [um]')
-parser.add_argument('layerNum', type=int, help='layer number of the output GDSII file')
-parser.add_argument('--scale', default=1.0, type=float, help='scale')
-parser.add_argument('-d', action='store_true', help='Floyd–Steinberg dithering')
-args = parser.parse_args()
-
 
 def minmax(v):
     if v > 255:
@@ -98,4 +90,12 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('fileName', type=str, help='name of the input image file')
+    parser.add_argument('sizeOfTheCell', type=float, help='size of the unit-cells (minimum width and space) [um]')
+    parser.add_argument('layerNum', type=int, help='layer number of the output GDSII file')
+    parser.add_argument('--scale', default=1.0, type=float, help='scale')
+    parser.add_argument('-d', action='store_true', help='Floyd–Steinberg dithering')
+    args = parser.parse_args()
+    
     main(args.fileName, args.sizeOfTheCell, args.layerNum, args.d, args.scale)
