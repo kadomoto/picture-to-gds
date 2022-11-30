@@ -7,6 +7,8 @@ This is a simple script for generating GDSII layout files from image files. The 
 ### Demo
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/ourfool/picture-to-gds/blob/master/demo.ipynb)
 
+![demo](document/fig4.jpg "demo")
+
 ### Prerequisites
 - NumPy
 - openCV
