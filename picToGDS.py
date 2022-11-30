@@ -65,6 +65,7 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     
     # The GDSII file is called a library, which contains multiple cells.
     lib = gdspy.GdsLibrary()
+    gdspy.current_library=gdspy.GdsLibrary()
 
     # Geometry must be placed in cells.
     unitCell = lib.new_cell('CELL')
@@ -87,8 +88,6 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     top = lib.new_cell("TOP")
     top.add(scaledGrid)
     lib.write_gds("image.gds")
-    del lib
-    del current_library
 
 
 if __name__ == "__main__":
