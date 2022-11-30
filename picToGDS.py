@@ -25,12 +25,12 @@ def minmax(v):
     return v
 
 
-def main(fileName, sizeOfTheCell, layerNum):
+def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     """Convert an image file (fileName) to a GDS file
     """
     print("Converting an image file to a GDS file..")
     # Read an image file
-    img = cv2.resize(cv2.imread(fileName), dsize=None, fx=args.scale, fy=args.scale)
+    img = cv2.resize(cv2.imread(fileName), dsize=None, fx=scale, fy=scale)
 
     width = img.shape[1]
     height = img.shape[0]
@@ -40,7 +40,7 @@ def main(fileName, sizeOfTheCell, layerNum):
     # Convert an image to grayscale one
     gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
-    if(args.d):
+    if(isDither):
         # Floyd–Steinberg dithering
         # https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering
         for y in range(0, height-1):
@@ -98,4 +98,4 @@ def main(fileName, sizeOfTheCell, layerNum):
 
 
 if __name__ == "__main__":
-    main(args.fileName, args.sizeOfTheCell, args.layerNum)
+    main(args.fileName, args.sizeOfTheCell, args.layerNum, args.d, args.scale)
