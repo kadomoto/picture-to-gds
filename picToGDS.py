@@ -67,11 +67,11 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     lib = gdspy.GdsLibrary()
 
     # Geometry must be placed in cells.
-    unitCell = lib.new_cell('CELL')
+    unitCell = lib.new_cell('CELL', overwrite_duplicate=True)
     square = gdspy.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
     unitCell.add(square)
 
-    grid =  lib.new_cell("GRID")
+    grid =  lib.new_cell("GRID", overwrite_duplicate=True)
 
     for x in range(width):
         for y in range(height):
@@ -84,14 +84,9 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
         grid, origin=(0, 0), magnification=(float)(sizeOfTheCell))
 
     # Add the top-cell to a layout and save
-    top = lib.new_cell("TOP")
+    top = lib.new_cell("TOP", overwrite_duplicate=True)
     top.add(scaledGrid)
     lib.write_gds("image.gds")
-    
-    lib.remove(top)
-    lib.remove(grid)
-    lib.remove(unitCell)
-    del lib
 
 
 if __name__ == "__main__":
