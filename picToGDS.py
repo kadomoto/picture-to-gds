@@ -87,6 +87,10 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     top = lib.new_cell("TOP")
     top.add(scaledGrid)
     lib.write_gds("image.gds")
+    
+    lib.remove(top)
+    lib.remove(grid)
+    lib.remove(unitCell)
     del lib
 
 
