@@ -69,7 +69,7 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
 
     # Geometry must be placed in cells.
     unitCell = lib.new_cell('CELL')
-    square = gdspy.Rectangle((0.0, 0.0), (1.0, 1.0), layer=(int)(layerNum))
+    square = gdspy.Rectangle((0.0, 0.0), (0.5, 0.5), layer=(int)(layerNum))
     unitCell.add(square)
 
     grid =  lib.new_cell("GRID")
