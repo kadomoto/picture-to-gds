@@ -22,7 +22,6 @@ def main(fileName, sizeOfTheCell, layerNum, isDither, scale):
     """
     print("Converting an image file to a GDS file..")
     # Read an image file
-
     img = cv2.resize(cv2.imread(fileName), dsize=None, fx=scale, fy=scale)
 
     width = img.shape[1]
